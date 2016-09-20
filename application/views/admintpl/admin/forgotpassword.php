@@ -1,10 +1,7 @@
-<!-- light-blue - v3.1.0 - 2014-12-06 -->
-
 <!DOCTYPE html>
 <html>
 
-<!-- Tieu Long Lanh Kute -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <title>CTCart</title>
 
@@ -25,50 +22,43 @@
         <div class="single-widget-container">
             <section class="widget login-widget">
                 <header class="text-align-center">
-                    <h4>Login to your account</h4>
+                    <h4>Forget Password</h4>
                 </header>
                 <div class="body">
                     <form class="no-margin"
-                          action="<?=base_url('admin/login')?>" method="post">
+                          action="<?=base_url('admin/forgotpassword')?>" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <label for="email">Username</label>
+                                <label for="email">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="fa fa-user"></i>
                                     </span>
-                                    <input id="username" type="username" class="form-control input-lg input-transparent"
-                                           placeholder="Your Username">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-lock"></i>
-                                    </span>
-                                    <input id="password" type="password" class="form-control input-lg input-transparent"
-                                           placeholder="Your Password">
+                                    <input id="email" name="email" type="email" class="form-control input-lg input-transparent"
+                                           placeholder="Your Email">
                                 </div>
                             </div>
                         </fieldset>
                         <div class="form-actions">
                             <button type="submit" name="submit" class="btn btn-block btn-lg btn-danger">
                                 <span class="small-circle"><i class="fa fa-caret-right"></i></span>
-                                <small>Sign In</small>
+                                <small>Reset Password</small>
                             </button>
-                            <a class="forgot" href="<?=base_url('admin/forgotpassword')?>">Forgot Username or Password?</a>
+                           <a class="forgot" href="<?=base_url('admin/login')?>">Login</a>
                         </div>
                     </form>
                 </div>
                 <footer>
-                    <?php if(isset($error)):?>
+                    <?php if($this->session->flashdata('error')):?>
                         <div class="alert-login ">
-                            <a href="index.html"><span><i class="fa fa-thumbs-down fa-lg"></i> Login Failed</span></a>
+                            <a href="index.html"><span><i class="fa fa-thumbs-down fa-lg"></i> <?=$this->session->flashdata('error')?></span></a>
                         </div>
                     <?php endif;?>
-
+                    <?php if($this->session->flashdata('success')):?>
+                    	<div class="alert-login ">
+                            <a href="index.html"><span><i class="fa fa-thumbs-down fa-lg"></i> <?=$this->session->flashdata('success')?></span></a>
+                        </div>
+                    <?php endif;?>
                 </footer>
             </section>
         </div>
